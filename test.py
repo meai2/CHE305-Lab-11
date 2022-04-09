@@ -1,8 +1,9 @@
-import pandas
-from pandas import read_csv
+import pandas as pd
+import numpy as np
+from sklearn.datasets import load_iris
+from IPython.display import display
 
-url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/iris.csv"
-names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
-dataset = read_csv(url, names=names)
+data = load_iris()
+df = pd.DataFrame(data.data, columns = data.feature_names)
 
-print(dataset.describe())
+display(df.to_string())

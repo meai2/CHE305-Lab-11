@@ -1,5 +1,7 @@
 import pandas as pd
 import glob
+import numpy as np
+from IPython.display import display
 
 def read_r6(path):
     path = r'https://github.com/meai2/CHE305-Lab-11/tree/main/Data/Refrigerant%3D0.66%20kg'
@@ -13,7 +15,7 @@ def read_r6(path):
 
     df = pd.concat(li, axis=0, ignore_index=True)
     return df
-
+   
 def read_r7(path):
     path = r'https://github.com/meai2/CHE305-Lab-11/tree/main/Data/Refrigerant%3D0.7%20kg'
     all_files = glob.glob(path + "/*.csv")
