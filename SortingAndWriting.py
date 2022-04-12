@@ -37,6 +37,7 @@ def import_data(allpath):
 df66 = import_data(0.66)
 count = len(df66) #Count number of datasets
 #SS_time = []
+rows = []
 
 for i in range(0,len(df66)): #Loop through all datasets
     df = df66[i] #Grab dataset
@@ -68,10 +69,10 @@ for i in range(0,len(df66)): #Loop through all datasets
         SS_LP = df["LP (abs.bar)"][n]
         SS_HPdiff = df["HP (abs.bar)"][n]-df["HP (abs.bar)"][0]
         SS_LPdiff = df["LP (abs.bar)"][n]-df["LP (abs.bar)"][0]
-        row = [SS_Q2, SS_Q3, SS_T4, SS_Power, SS_HP, SS_LP, SS_HPdiff, SS_LPdiff, SS_time]
-        
+        rows.append([SS_Q2, SS_Q3, SS_T4, SS_Power, SS_HP, SS_LP, SS_HPdiff, SS_LPdiff, SS_time])
         #Write the row to a csv file
-        with open('SixtySix.csv', mode='w') as f:
+        with open('SixtySix.csv', mode='w', newline='') as f:
             writer = csv.writer(f)
-            writer.writerow(row)
+            writer.writerows(rows)
+            f.close()
         
