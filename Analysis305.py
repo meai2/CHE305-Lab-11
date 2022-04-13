@@ -21,7 +21,8 @@ path = "C:/Users/armin/Documents/CHE305 Code/Data.csv"
 names = ['qC', 'qE', 'wT' ,'W', 'delwT', 'HP', 'LP', 'mass', 't_ss']
 dataset = read_csv(path, names=names)
 # box and whisker plots
-dataset.plot(kind='box', subplots=True, sharex=False, sharey=False)
+dataset.plot(kind='box', layout=(2,4), subplots=True, sharex=False, sharey=False)
+dataset.plot()
 pyplot.show()
 # histograms
 dataset.hist()
@@ -35,6 +36,7 @@ pyplot.show()
 array = dataset.values
 X = array[:,0:8]
 y = array[:,8]
+#Can change test size as necessary, very high accuracy all the way up to half train, half test
 X_train, X_validation, Y_train, Y_validation = train_test_split(X, y, test_size=0.2, random_state=1)
 
 
